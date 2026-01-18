@@ -71,8 +71,9 @@ Descriptive Questions
 
 What is the scope of the project?
 Explain the project overview.
-
-🧠 High-Level Architecture
+```
+### 🧠 High-Level Architecture
+```
 User Uploads PDFs
         ↓
 PDF Text Extraction & Chunking
@@ -102,9 +103,11 @@ Document-wise Grouping
  └──────────────────────────────┘
         ↓
 Final Answer with Sources & Evidence
+```
 
 
-🛠️ Technology Stack
+### 🛠️ Technology Stack
+```
 Frontend
 
 Streamlit
@@ -127,36 +130,26 @@ Language Model
 
 FLAN-T5 (local LLM) via HuggingFace
 
-Used only for:
-
-Descriptive questions (scope, summary, explanation)
-
-Final answer presentation
-
-Not used for:
-
-Fact extraction (prevents hallucination)
-
 Embeddings
 
 Sentence / transformer-based embeddings
 
 Stored locally using FAISS
+```
 
-No dependency on external APIs
-
-🔍 RAG Implementation Approach
+### 🔍 RAG Implementation Approach
 Why RAG?
 
-Traditional LLMs:
-
+### ** Traditional LLMs: **
+```
 Can hallucinate
 
 Lack document traceability
 
 Are unreliable for factual extraction
+```
 
-RAG solves this by:
+### ** RAG solves this by: **
 
 Retrieving relevant document context first
 
