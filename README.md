@@ -140,7 +140,7 @@ Stored locally using FAISS
 ### 🔍 RAG Implementation Approach
 Why RAG?
 
-### ** Traditional LLMs: **
+#### **Traditional LLMs:**
 ```
 Can hallucinate
 
@@ -149,13 +149,13 @@ Lack document traceability
 Are unreliable for factual extraction
 ```
 
-### ** RAG solves this by: **
+#### **RAG solves this by:**
 
 Retrieving relevant document context first
 
 Restricting LLM responses to verified content
 
-Hybrid Retrieval Strategy
+#### **Hybrid Retrieval Strategy**
 
 The system uses a hybrid retrieval approach:
 
@@ -177,7 +177,7 @@ This balances recall and precision, especially for semi-structured PDFs.
 
 Questions are classified into two categories:
 
-1️⃣ Extractive (Deterministic)
+**1️⃣ Extractive (Deterministic)**
 
 Handled without LLM inference.
 
@@ -200,7 +200,7 @@ Signal-based extraction (numbers, dates, proper nouns)
 Robust to variations in field names
 (e.g., “TIV”, “Total Investment”)
 
-2️⃣ Descriptive (LLM-Based)
+**2️⃣ Descriptive (LLM-Based)**
 
 Handled using LLM + retrieved context.
 
@@ -212,7 +212,7 @@ Overview / explanation
 
 Background / history
 
-Approach:
+**Approach:**
 
 Relevant chunks passed to the LLM
 
@@ -220,7 +220,7 @@ Strict prompts to prevent hallucination
 
 Answers grounded strictly in document text
 
-🧪 Evidence and Source Attribution
+**🧪 Evidence and Source Attribution**
 
 Every answer includes:
 
@@ -238,8 +238,8 @@ Auditability
 
 Trustworthiness
 
-🚧 Challenges Faced & Solutions
-Challenge 1: Semi-Structured PDFs
+### **🚧 Challenges Faced & Solutions**
+**Challenge 1: Semi-Structured PDFs**
 
 Problem:
 Field names and layouts vary across documents.
@@ -247,7 +247,7 @@ Field names and layouts vary across documents.
 Solution:
 Used signal-based extraction (patterns, numeric magnitude, context windows) instead of strict field matching.
 
-Challenge 2: Mixed Question Types
+**Challenge 2: Mixed Question Types**
 
 Problem:
 Users ask both factual and descriptive questions.
@@ -259,7 +259,7 @@ Deterministic extractors (facts)
 
 LLM-based answering (descriptions)
 
-Challenge 3: Hallucination Risk
+**Challenge 3: Hallucination Risk**
 
 Problem:
 LLMs can invent information.
@@ -272,7 +272,7 @@ Strict prompts: “Use only provided context”
 
 Clear fallback when information is missing
 
-Challenge 4: Multi-PDF Confusion
+**Challenge 4: Multi-PDF Confusion**
 
 Problem:
 Information from different documents could mix.
@@ -285,7 +285,7 @@ Enforce “one PDF = one project”
 
 Generate answers per document
 
-✅ Why This Approach Is Effective
+#### **✅ Why This Approach Is Effective**
 
 Combines accuracy (deterministic extraction)
 
@@ -297,19 +297,23 @@ Scales to new document formats
 
 Suitable for production and enterprise use
 
-📌 How to Run the Application
+### **📌 How to Run the Application**
+```
 pip install -r requirements.txt
 streamlit run ui/streamlit_app.py
+```
 
-📂 Project Structure (Simplified)
+### **📂 Project Structure (Simplified)**
+```
 app/
  ├─ ingestion/        # PDF loading & chunking
  ├─ vectorstore/      # FAISS indexing & retrieval
  ├─ rag/              # QA logic, extractors, prompts
 ui/
  └─ streamlit_app.py  # Web interface
+```
 
-👤 Author
+## **👤 Author**
 
 Sachin Balhara
 AI / ML Engineer
